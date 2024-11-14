@@ -1,0 +1,1577 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Viettel Cần Thơ</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script> -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.min.js"></script> -->
+    <!-- <script src="app.js"></script> -->
+    <style>
+      .scrollable-list {
+        display: none;
+      }
+
+      .scrollable-list-4g {
+        display: none;
+      }
+
+      .combo-tv {
+        display: none;
+      }
+
+      .card-huongdan {
+        width: 40%;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        background-color: #f9f9f9;
+        transition: all 0.3s ease;
+      }
+
+      @media (max-width: 768px) {
+        .card-huongdan {
+          width: 90%;
+          margin: 0 0 0 30px;
+        }
+      }
+
+      @media (max-width: 932px) {
+        .scrollable-list {
+          max-height: 520px;
+          overflow-x: auto;
+          overflow-y: hidden;
+          display: flex;
+          white-space: nowrap;
+          gap: 1rem;
+          padding-bottom: 1rem;
+          margin-left: 10px;
+        }
+
+        .scrollable-list-4g {
+          max-height: 520px;
+          overflow-x: auto;
+          overflow-y: hidden;
+          display: flex;
+          white-space: nowrap;
+          gap: 1rem;
+          padding-bottom: 1rem;
+          margin-left: 10px;
+        }
+
+        .scrollable-list .card {
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .scrollable-list .card.highlight {
+          transform: scale(1.05);
+          box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .card {
+          flex: 0 0 auto;
+          width: 16rem;
+          word-wrap: break-word;
+          overflow-wrap: break-word;
+        }
+
+        .card .card-subtitle {
+          font-size: 0.9rem;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        .card p {
+          white-space: normal;
+          align-items: center;
+        }
+
+        .scrollable-list::-webkit-scrollbar {
+          height: 8px;
+        }
+
+        .scrollable-list::-webkit-scrollbar-thumb {
+          background-color: #ccc;
+          border-radius: 4px;
+        }
+
+        .scrollable-list::-webkit-scrollbar-track {
+          background-color: #f1f1f1;
+        }
+
+        h4 {
+          font-size: 18px;
+        }
+
+        h5 {
+          font-size: 16px;
+        }
+
+        .no-responsive {
+          display: none;
+        }
+
+        .card-camera {
+          width: 90%;
+        }
+
+        .combo-tv {
+          display: flex;
+        }
+
+        .combo-tv-internet {
+          width: 100%;
+        }
+
+      
+      }
+
+      /* Style cho các card */
+      .card-camera {
+        width: 15rem;
+        flex-shrink: 0; /* Ngăn không cho card thu nhỏ */
+        border: 0.5px solid rgb(174, 174, 174);
+      }
+
+      .card-camera img {
+        width: 100%;
+        height: auto; /* Giữ tỷ lệ hình ảnh */
+      }
+
+      .card-camera .card-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        border-radius: 0px;
+        border: 0.5px solid rgb(174, 174, 174);
+      }
+
+      .card-camera .card-title {
+        font-size: 1.2rem;
+      }
+
+      .card-camera .card-link {
+        margin-top: 14px;
+      }
+
+      .card {
+        border: 0.5px solid #a2a2a2;
+      }
+
+      
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <a href="#" class="logo">
+        <img src="assets/images/logo.jpg" alt="logo" />
+      </a>
+      <i class="bx bx-menu" id="menu-icon"></i>
+      <nav class="navbar">
+        <a href="index.html">Trang chủ</a>
+        <a href="allpackagtruyenhinh.html">Truyền hình</a>
+        <a href="allpackage.html">Wifi</a>
+        <a href="allpackagcamera.html">Camera</a>
+        <a href="allpackage4g-5g.html">Gói 4G-5G</a>
+      </nav>
+      <div class="nav-bg"></div>
+    </header>
+    <!-- <div ng-view></div> -->
+    <div class="content mb-5">
+      <div class="row">
+        <div class="ms-2 p-0">
+          <img
+            src="assets/images/carosel1.jpg"
+            alt=""
+            class="img-fluid banner-img"
+          />
+          <!-- <div class="banner-overlay"></div>
+              <div class="banner-text">LIÊN HỆ</div> -->
+        </div>
+      </div>
+
+      <div class="col-lg-12 mt-3">
+        <div class="row">
+          <div class="title_module_main col">
+            <h4 class="text-center fw-bold">Các gói dịch vụ</h4>
+            <div class="custom-divider"></div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row mt-2 no-responsive">
+            <div
+              id="cardCarousel"
+              class="carousel slide"
+              data-bs-ride="carousel"
+            >
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <div class="row">
+                    <div class="col-lg-3 col-md-12 col-12">
+                      <div class="card" style="width: 15rem">
+                        <img
+                          src="assets/images/homt.jpg"
+                          class="card-img-top"
+                          alt="..."
+                        />
+                        <div class="card-body shadow bg-body-tertiary rounded">
+                          <h6
+                            class="card-subtitle mb-2 fw-bold text-body-secondary"
+                          >
+                            Tốc độ: 150Mbps
+                          </h6>
+                          <h5 class="card-title">165.000/tháng</h5>
+                          <p class="text-danger" style="font-size: 14px">
+                            (Đã bao gồm VAT)
+                          </p>
+                          <p class="card-text overflow-y">
+                            Phù hợp với cá nhân, hộ gia đình có nhu cầu kết nối
+                            cho mục đích học tập, giải trí thông thường. Áp dụng
+                            tại 61 tỉnh thành(trừ HNI và HCM).
+                          </p>
+                          <a href="homet.html" class="card-link"
+                            >Xem chi tiết</a
+                          >
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-12 col-12">
+                      <div class="card" style="width: 15rem">
+                        <img
+                          src="assets/images/sun1.jpg"
+                          class="card-img-top"
+                          alt="..."
+                        />
+                        <div class="card-body shadow bg-body-tertiary rounded">
+                          <h6
+                            class="card-subtitle mb-2 fw-bold text-body-secondary"
+                          >
+                            Tốc độ: 200Mbps
+                          </h6>
+                          <h5 class="card-title">180.000/tháng</h5>
+                          <p class="text-danger" style="font-size: 14px">
+                            (Đã bao gồm VAT)
+                          </p>
+                          <p class="card-text overflow-y">
+                            Phù hợp với cá nhân, hộ gia đình có nhu cầu cao về
+                            băng thông cho mục đích học tập và giải trí thông
+                            thường. Áp dụng tại 61 Tỉnh và ngoại thành Hà Nội,
+                            TP Hồ Chí Minh.
+                          </p>
+                          <a href="sun1t.html" class="card-link"
+                            >Xem chi tiết</a
+                          >
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="card-w-none col-lg-3 col-md-12 col-12">
+                      <div class="card" style="width: 15rem">
+                        <img
+                          src="assets/images/sun2.jpg"
+                          class="card-img-top"
+                          alt="..."
+                        />
+                        <div class="card-body shadow bg-body-tertiary rounded">
+                          <h6
+                            class="card-subtitle mb-2 fw-bold text-body-secondary"
+                          >
+                            Tối thiểu: 300Mbps
+                          </h6>
+                          <h5 class="card-title">229.000/tháng</h5>
+                          <p class="text-danger" style="font-size: 14px">
+                            (Đã bao gồm VAT)
+                          </p>
+                          <p class="card-text overflow-y">
+                            Phù hợp với cá nhân, hộ gia đình có nhu cầu cao về
+                            băng thông(download/upload nhiều), nhu cầu xem phim
+                            HD, chơi game Online, IP Camera. Áp dụng tại 61 Tỉnh
+                            và ngoại thành Hà Nội, TP Hồ Chí Minh.
+                          </p>
+                          <a href="sun2t.html" class="card-link"
+                            >Xem chi tiết</a
+                          >
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="card-w-none col-lg-3 col-md-12 col-12">
+                      <div class="card" style="width: 15rem">
+                        <img
+                          src="assets/images/sun3.jpg"
+                          class="card-img-top"
+                          alt="..."
+                        />
+                        <div class="card-body shadow bg-body-tertiary rounded">
+                          <h6
+                            class="card-subtitle mb-2 fw-bold text-body-secondary"
+                          >
+                            Tối thiểu 400Mbps
+                          </h6>
+                          <h5 class="card-title">279.000/tháng</h5>
+                          <p class="text-danger" style="font-size: 14px">
+                            (Đã bao gồm VAT)
+                          </p>
+                          <p class="card-text overflow-y">
+                            Phù hợp với cá nhân, hộ gia đình có nhu cầu cao về
+                            băng thông(download/upload nhiều), nhu cầu xem phim
+                            HD, chơi game Online, IP Camera. Áp dụng tại 61 Tỉnh
+                            và ngoại thành Hà Nội, TP Hồ Chí Minh.
+                          </p>
+                          <a href="sun3t.html" class="card-link"
+                            >Xem chi tiết</a
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Thêm nhiều carousel-item nếu cần -->
+                <div class="carousel-item">
+                  <div class="row">
+                    <div class="card-w-none col-lg-3 col-md-12 col-12">
+                      <div class="card" style="width: 15rem">
+                        <img
+                          src="assets/images/start1.jpg"
+                          class="card-img-top"
+                          alt="..."
+                        />
+                        <div class="card-body shadow bg-body-tertiary rounded">
+                          <h6
+                            class="card-subtitle mb-2 fw-bold text-body-secondary"
+                          >
+                            Tốc độ: 200Mbps + 2 thiết bị phát wifi
+                          </h6>
+                          <h5 class="card-title">210.000/tháng</h5>
+                          <p class="text-danger" style="font-size: 14px">
+                            (Đã bao gồm VAT)
+                          </p>
+                          <p class="card-text overflow-y">
+                            Phù hợp vói khách hàng có nhu cầu mở rộng vùng phủ
+                            Wifi(nhà cung cấp 4 rộng, căn hộ nhiều phòng,..). Áp
+                            dụng tại 61 Tỉnh và ngoại thành thành Hà Nội, TP Hồ
+                            Chí Minh.
+                          </p>
+                          <a href="star1t.html" class="card-link"
+                            >Xem chi tiết</a
+                          >
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="card-w-none col-lg-3 col-md-12 col-12">
+                      <div class="card" style="width: 15rem">
+                        <img
+                          src="assets/images/start2.jpg"
+                          class="card-img-top"
+                          alt="..."
+                        />
+                        <div class="card-body shadow bg-body-tertiary rounded">
+                          <h6
+                            class="card-subtitle mb-2 fw-bold text-body-secondary"
+                          >
+                            Tối thiểu: 300Mbps + 3 thiết bị phát wifi
+                          </h6>
+                          <h5 class="card-title">245.000/tháng</h5>
+                          <p class="text-danger" style="font-size: 14px">
+                            (Đã bao gồm VAT)
+                          </p>
+                          <p class="card-text overflow-y">
+                            Phù hợp với cá nhân, hộ gia đình có nhu cầu cao về
+                            băng thông(download/upload nhiều), nhu cầu xem phim
+                            HD, chơi game Online, IP Camera. Áp dụng tại 61 Tỉnh
+                            và ngoại thành Hà Nội, TP Hồ Chí Minh.
+                          </p>
+                          <a href="star2t.html" class="card-link"
+                            >Xem chi tiết</a
+                          >
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="card-w-none col-lg-3 col-md-12 col-12">
+                      <div class="card" style="width: 15rem">
+                        <img
+                          src="assets//images/start3.jpg"
+                          class="card-img-top"
+                          alt="..."
+                        />
+                        <div class="card-body shadow bg-body-tertiary rounded">
+                          <h6
+                            class="card-subtitle mb-2 fw-bold text-body-secondary"
+                          >
+                            Tối thiểu 400Mbps + 4 thiết bị phát wifi
+                          </h6>
+                          <h5 class="card-title">299.000/tháng</h5>
+                          <p class="text-danger" style="font-size: 14px">
+                            (Đã bao gồm VAT)
+                          </p>
+                          <p class="card-text overflow-y">
+                            Phù hợp với khách hàng có nhu cầu rất cao về băng
+                            thông. Áp dụng tại 61 Tỉnh và ngoại thành Hà Nội, TP
+                            Hồ Chí Minh.
+                          </p>
+                          <a href="star3t.html" class="card-link"
+                            >Xem chi tiết</a
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Nút điều hướng -->
+              <button
+                class="carousel-control-prev"
+                type="button"
+                data-bs-target="#cardCarousel"
+                data-bs-slide="prev"
+              >
+                <span
+                  class="carousel-control-prev-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button
+                class="carousel-control-next"
+                type="button"
+                data-bs-target="#cardCarousel"
+                data-bs-slide="next"
+              >
+                <span
+                  class="carousel-control-next-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="scrollable-list">
+            <!-- Card 1 -->
+            <div class="card" style="width: 15rem">
+              <img
+                src="assets/images/homt.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body shadow bg-body-tertiary rounded">
+                <h6 class="card-subtitle mb-2 fw-bold text-body-secondary">
+                  Tốc độ: 150Mbps
+                </h6>
+                <h5 class="card-title">165.000/tháng</h5>
+                <p class="text-danger" style="font-size: 14px">
+                  (Đã bao gồm VAT)
+                </p>
+                <p class="card-text overflow-y">
+                  Phù hợp với cá nhân, hộ gia đình có nhu cầu kết nối cho mục
+                  đích học tập, giải trí thông thường. Áp dụng tại 61 tỉnh
+                  thành(trừ HNI và HCM).
+                </p>
+                <a href="homet.html" class="card-link">Xem chi tiết</a>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="card" style="width: 15rem">
+              <img
+                src="assets/images/sun1.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body shadow bg-body-tertiary rounded">
+                <h6 class="card-subtitle mb-2 fw-bold text-body-secondary">
+                  Tốc độ: 200Mbps
+                </h6>
+                <h5 class="card-title">180.000/tháng</h5>
+                <p class="text-danger" style="font-size: 14px">
+                  (Đã bao gồm VAT)
+                </p>
+                <p class="card-text overflow-y">
+                  Phù hợp với cá nhân, hộ gia đình có nhu cầu cao về băng thông
+                  cho mục đích học tập và giải trí thông thường. Áp dụng tại 61
+                  Tỉnh và ngoại thành Hà Nội, TP Hồ Chí Minh.
+                </p>
+                <a href="sun1t.html" class="card-link">Xem chi tiết</a>
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="card" style="width: 15rem">
+              <img
+                src="assets/images/sun2.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body shadow bg-body-tertiary rounded">
+                <h6 class="card-subtitle mb-2 fw-bold text-body-secondary">
+                  Tối thiểu: 300Mbps
+                </h6>
+                <h5 class="card-title">229.000/tháng</h5>
+                <p class="text-danger" style="font-size: 14px">
+                  (Đã bao gồm VAT)
+                </p>
+                <p class="card-text overflow-y">
+                  Phù hợp với cá nhân, hộ gia đình có nhu cầu cao về băng
+                  thông(download/upload nhiều), nhu cầu xem phim HD, chơi game
+                  Online, IP Camera. Áp dụng tại 61 Tỉnh và ngoại thành Hà Nội,
+                  TP Hồ Chí Minh.
+                </p>
+                <a href="sun2t.html" class="card-link">Xem chi tiết</a>
+              </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="card" style="width: 15rem">
+              <img
+                src="assets/images/sun3.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body shadow bg-body-tertiary rounded">
+                <h6 class="card-subtitle mb-2 fw-bold text-body-secondary">
+                  Tối thiểu 400Mbps
+                </h6>
+                <h5 class="card-title">279.000/tháng</h5>
+                <p class="text-danger" style="font-size: 14px">
+                  (Đã bao gồm VAT)
+                </p>
+                <p class="card-text overflow-y">
+                  Phù hợp với cá nhân, hộ gia đình có nhu cầu cao về băng
+                  thông(download/upload nhiều), nhu cầu xem phim HD, chơi game
+                  Online, IP Camera. Áp dụng tại 61 Tỉnh và ngoại thành Hà Nội,
+                  TP Hồ Chí Minh.
+                </p>
+                <a href="sun3t.html" class="card-link">Xem chi tiết</a>
+              </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="card" style="width: 15rem">
+              <img
+                src="assets/images/start1.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body shadow bg-body-tertiary rounded">
+                <h6 class="card-subtitle mb-2 fw-bold text-body-secondary">
+                  Tốc độ: 200Mbps + 2 thiết bị phát wifi
+                </h6>
+                <h5 class="card-title">210.000/tháng</h5>
+                <p class="text-danger" style="font-size: 14px">
+                  (Đã bao gồm VAT)
+                </p>
+                <p class="card-text overflow-y">
+                  Phù hợp vói khách hàng có nhu cầu mở rộng vùng phủ Wifi(nhà
+                  cung cấp 4 rộng, căn hộ nhiều phòng,..). Áp dụng tại 61 Tỉnh
+                  và ngoại thành thành Hà Nội, TP Hồ Chí Minh.
+                </p>
+                <a href="star1t.html" class="card-link">Xem chi tiết</a>
+              </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="card" style="width: 15rem">
+              <img
+                src="assets/images/start2.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body shadow bg-body-tertiary rounded">
+                <h6 class="card-subtitle mb-2 fw-bold text-body-secondary">
+                  Tối thiểu: 300Mbps + 3 thiết bị phát wifi
+                </h6>
+                <h5 class="card-title">245.000/tháng</h5>
+                <p class="text-danger" style="font-size: 14px">
+                  (Đã bao gồm VAT)
+                </p>
+                <p class="card-text overflow-y">
+                  Phù hợp với cá nhân, hộ gia đình có nhu cầu cao về băng
+                  thông(download/upload nhiều), nhu cầu xem phim HD, chơi game
+                  Online, IP Camera. Áp dụng tại 61 Tỉnh và ngoại thành Hà Nội,
+                  TP Hồ Chí Minh.
+                </p>
+                <a href="star2t.html" class="card-link">Xem chi tiết</a>
+              </div>
+            </div>
+
+            <!-- Card 7 -->
+            <div class="card" style="width: 15rem">
+              <img
+                src="assets//images/start3.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body shadow bg-body-tertiary rounded">
+                <h6 class="card-subtitle mb-2 fw-bold text-body-secondary">
+                  Tối thiểu 400Mbps + 4 thiết bị phát wifi
+                </h6>
+                <h5 class="card-title">299.000/tháng</h5>
+                <p class="text-danger" style="font-size: 14px">
+                  (Đã bao gồm VAT)
+                </p>
+                <p class="card-text overflow-y">
+                  Phù hợp với khách hàng có nhu cầu rất cao về băng thông. Áp
+                  dụng tại 61 Tỉnh và ngoại thành Hà Nội, TP Hồ Chí Minh.
+                </p>
+                <a href="star3t.html" class="card-link">Xem chi tiết</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-12 text-center">
+          <a
+            href="allpackage.html"
+            class="btn btn-outline-secondary btn-see-more"
+          >
+            Xem tất cả
+          </a>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-12 mt-5">
+          <div class="row">
+            <div class="title_module_main col">
+              <h4 class="text-start ps-2 fw-bold">Gói cước 4G</h4>
+            </div>
+          </div>
+          <div class="row no-responsive">
+            <div class="col-lg-3">
+              <div class="card" style="width: 18rem">
+                <div class="banner p-0">
+                  <img
+                    src="assets/images/img-similar-pack.svg"
+                    class="card-img-top"
+                    alt="..."
+                  />
+                  <div class="banner-text">ST70K</div>
+                </div>
+                <div class="card-body-4g">
+                  <h5 class="card-title">70.000đ</h5>
+                  <p class="card-text">
+                    15GB (500MB/ngày) + Miễn phí data truy cập ứng dụng
+                    TikTok...
+                  </p>
+                  <a href="st70k.html" class="card-link">Xem chi tiết</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <div class="card" style="width: 18rem">
+                <div class="banner p-0">
+                  <img
+                    src="assets/images/img-similar-pack.svg"
+                    class="card-img-top"
+                    alt="..."
+                  />
+                  <div class="banner-text">SD90</div>
+                </div>
+
+                <div class="card-body-4g">
+                  <h5 class="card-title">90.000đ</h5>
+                  <p class="card-text">
+                    SD90: 90K/30 ngày có 45GB (1,5GB/ngày)
+                  </p>
+                  <a href="sd90.html" class="card-link">Xem chi tiết</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <div class="card" style="width: 18rem">
+                <div class="banner p-0">
+                  <img
+                    src="assets/images/img-similar-pack.svg"
+                    class="card-img-top"
+                    alt="..."
+                  />
+                  <div class="banner-text">ST120K</div>
+                </div>
+                <div class="card-body-4g">
+                  <h5 class="card-title">120.000đ</h5>
+                  <p class="card-text">
+                    2GB/ngày + Miễn phí DV LifeBOX (gói Vip1) + Miễn phí xem
+                    phim trên ứng dụng TV360
+                  </p>
+                  <a href="st120k.html" class="card-link">Xem chi tiết</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <div class="card" style="width: 18rem">
+                <div class="banner p-0">
+                  <img
+                    src="assets/images/img-similar-pack.svg"
+                    class="card-img-top"
+                    alt="..."
+                  />
+                  <div class="banner-text">ST150K</div>
+                </div>
+                <div class="card-body-4g">
+                  <h5 class="card-title">150.000đ</h5>
+                  <p class="card-text">
+                    3GB/ngày + Miễn phí DV LifeBOX (gói Vip1) + Miễn phí xem
+                    phim trên ứng dụng TV360
+                  </p>
+                  <a href="st150k.html" class="card-link">Xem chi tiết</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row mt-2">
+            <div class="scrollable-list-4g">
+              <!-- Card 1-->
+              <div class="card" style="width: 18rem">
+                <div class="banner p-0">
+                  <img
+                    src="assets/images/img-similar-pack.svg"
+                    class="card-img-top"
+                    alt="..."
+                  />
+                  <div class="banner-text">ST70K</div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="card-body-4g">
+                  <h5 class="card-title">70.000đ</h5>
+                  <p class="card-text">
+                    Đăng ký từ ngày 21 đến cuối tháng sẽ giảm 50% phí gói và có
+                    500MB/ngày
+                  </p>
+                  <a href="st70k.html" class="card-link">Xem chi tiết</a>
+                </div>
+              </div>
+
+              <!-- Card 2-->
+              <div class="card" style="width: 18rem">
+                <div class="banner p-0">
+                  <img
+                    src="assets/images/img-similar-pack.svg"
+                    class="card-img-top"
+                    alt="..."
+                  />
+                  <div class="banner-text">SD90</div>
+                </div>
+
+                <div class="card-body-4g">
+                  <h5 class="card-title">90.000đ</h5>
+                  <p class="card-text">SD90: 90K/30 ngày có 45GB</p>
+                  <a href="sd90.html" class="card-link">Xem chi tiết</a>
+                </div>
+              </div>
+
+              <!-- Card 3-->
+              <div class="card" style="width: 18rem">
+                <div class="banner p-0">
+                  <img
+                    src="assets/images/img-similar-pack.svg"
+                    class="card-img-top"
+                    alt="..."
+                  />
+                  <div class="banner-text">ST120K</div>
+                </div>
+                <div class="card-body-4g">
+                  <h5 class="card-title">120.000đ</h5>
+                  <p class="card-text">
+                    2GB/ngày + Miễn phí DV LifeBOX (gói Vip1) + Miễn phí xem
+                    phim trên ứng dụng TV360
+                  </p>
+                  <a href="st120k.html" class="card-link">Xem chi tiết</a>
+                </div>
+              </div>
+
+              <!-- Card 4-->
+              <div class="card" style="width: 18rem">
+                <div class="banner p-0">
+                  <img
+                    src="assets/images/img-similar-pack.svg"
+                    class="card-img-top"
+                    alt="..."
+                  />
+                  <div class="banner-text">ST150K</div>
+                </div>
+                <div class="card-body-4g">
+                  <h5 class="card-title">150.000đ</h5>
+                  <p class="card-text">
+                    3GB/ngày + Miễn phí DV LifeBOX (gói Vip1) + Miễn phí xem
+                    phim trên ứng dụng TV360
+                  </p>
+                  <a href="st150k.html" class="card-link">Xem chi tiết</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-12 text-center mt-3">
+            <a
+              href="allpackage4g.html"
+              class="btn btn-outline-secondary btn-see-more"
+            >
+              Xem thêm
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-12 mt-5">
+          <div class="row">
+            <div class="title_module_main col">
+              <h4 class="text-start ps-2 fw-bold">Gói cước 5G</h4>
+            </div>
+          </div>
+          <div class="row no-responsive">
+            <div class="col-lg-3">
+              <div class="card" style="width: 18rem">
+                <div class="banner p-0">
+                  <img
+                    src="assets/images/img-similar-pack.svg"
+                    class="card-img-top"
+                    alt="..."
+                  />
+                  <div class="banner-text">5G135</div>
+                </div>
+                <div class="card-body-4g">
+                  <h5 class="card-title">135.000đ</h5>
+                  <p class="card-subtitle">4GB/ngày</p>
+                  <p class="card-text">Miễn phí TV360 4K, 20GB Mybox...</p>
+                  <a href="5g135.html" class="card-link">Xem chi tiết</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <div class="card" style="width: 18rem">
+                <div class="banner p-0">
+                  <img
+                    src="assets/images/img-similar-pack.svg"
+                    class="card-img-top"
+                    alt="..."
+                  />
+                  <div class="banner-text">5G150</div>
+                </div>
+                <div class="card-body-4g">
+                  <h5 class="card-title">150.000đ</h5>
+                  <p class="card-subtitle">6GB/ngày</p>
+                  <p class="card-text">Miễn phí TV360 4K, 30GB Mybox...</p>
+                  <a href="5g150.html" class="card-link">Xem chi tiết</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row mt-2">
+            <div class="scrollable-list-4g">
+              <!-- Card 1 -->
+              <div class="card" style="width: 18rem">
+                <div class="banner p-0">
+                  <img
+                    src="assets/images/img-similar-pack.svg"
+                    class="card-img-top"
+                    alt="..."
+                  />
+                  <div class="banner-text">5G135</div>
+                </div>
+                <div class="card-body-4g">
+                  <h5 class="card-title">135.000đ</h5>
+                  <p class="card-subtitle">4GB/ngày</p>
+                  <p class="card-text">Miễn phí TV360 4K, 20GB Mybox...</p>
+                  <a href="5g135.html" class="card-link">Xem chi tiết</a>
+                </div>
+              </div>
+
+              <!-- Card 2 -->
+              <div class="card" style="width: 18rem">
+                <div class="banner p-0">
+                  <img
+                    src="assets/images/img-similar-pack.svg"
+                    class="card-img-top"
+                    alt="..."
+                  />
+                  <div class="banner-text">5G150</div>
+                </div>
+                <div class="card-body-4g">
+                  <h5 class="card-title">150.000đ</h5>
+                  <p class="card-subtitle">6GB/ngày</p>
+                  <p class="card-text">Miễn phí TV360 4K, 30GB Mybox...</p>
+                  <a href="5g150.html" class="card-link">Xem chi tiết</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-12 text-center mt-3">
+            <a
+              href="allpackage5g.html"
+              class="btn btn-outline-secondary btn-see-more"
+            >
+              Xem thêm
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-12 mt-5">
+          <div class="row">
+            <div class="title_module_main col">
+              <h4 class="text-start ps-2 fw-bold">Gói cước 5G combo</h4>
+            </div>
+          </div>
+          <div class="row no-responsive">
+            <div class="col-lg-3">
+              <div class="card" style="width: 18rem">
+                <div class="banner p-0">
+                  <img
+                    src="assets/images/img-similar-pack.svg"
+                    class="card-img-top"
+                    alt="..."
+                  />
+                  <div class="banner-text">5G160B</div>
+                </div>
+
+                <div class="card-body-4g">
+                  <h5 class="card-title">160.000đ</h5>
+                  <p class="card-subtitle">4GB/ngày</p>
+                  <p class="card-text">Miễn phí TV360 4K, 20GB Mybox...</p>
+                  <a href="5g160b.html" class="card-link">Xem chi tiết</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <div class="card" style="width: 18rem">
+                <div class="banner p-0">
+                  <img
+                    src="assets/images/img-similar-pack.svg"
+                    class="card-img-top"
+                    alt="..."
+                  />
+                  <div class="banner-text">5G180B</div>
+                </div>
+
+                <div class="card-body-4g">
+                  <h5 class="card-title">180.000đ</h5>
+                  <p class="card-subtitle">6GB/ngày</p>
+                  <p class="card-text">Miễn phí TV360 4K, 30GB Mybox...</p>
+                  <a href="5g180B.html" class="card-link">Xem chi tiết</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <div class="card" style="width: 18rem">
+                <div class="banner p-0">
+                  <img
+                    src="assets/images/img-similar-pack.svg"
+                    class="card-img-top"
+                    alt="..."
+                  />
+                  <div class="banner-text">5G230B</div>
+                </div>
+                <div class="card-body-4g">
+                  <h5 class="card-title">230.000đ</h5>
+                  <p class="card-subtitle">8GB/ngày</p>
+                  <p class="card-text">Miễn phí TV360 4K, 50GB Mybox...</p>
+                  <a href="5g230b.html" class="card-link">Xem chi tiết</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <div class="card" style="width: 18rem">
+                <div class="banner p-0">
+                  <img
+                    src="assets/images/img-similar-pack.svg"
+                    class="card-img-top"
+                    alt="..."
+                  />
+                  <div class="banner-text">SG280B</div>
+                </div>
+                <div class="card-body-4g">
+                  <h5 class="card-title">280.000đ</h5>
+                  <p class="card-subtitle">10GB/ngày</p>
+                  <p class="card-text">Miễn phí TV360 4K, 70GB Mybox...</p>
+                  <a href="5g280b.html" class="card-link">Xem chi tiết</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row mt-2">
+            <div class="scrollable-list-4g">
+              <!-- Card 1 -->
+              <div class="card" style="width: 18rem">
+                <div class="banner p-0">
+                  <img
+                    src="assets/images/img-similar-pack.svg"
+                    class="card-img-top"
+                    alt="..."
+                  />
+                  <div class="banner-text">5G160B</div>
+                </div>
+
+                <div class="card-body-4g">
+                  <h5 class="card-title">160.000đ</h5>
+                  <p class="card-subtitle">4GB/ngày</p>
+                  <p class="card-text">Miễn phí TV360 4K, 20GB Mybox...</p>
+                  <a href="5g160b.html" class="card-link">Xem chi tiết</a>
+                </div>
+              </div>
+
+              <!-- Card 2 -->
+              <div class="card" style="width: 18rem">
+                <div class="banner p-0">
+                  <img
+                    src="assets/images/img-similar-pack.svg"
+                    class="card-img-top"
+                    alt="..."
+                  />
+                  <div class="banner-text">SG180B</div>
+                </div>
+
+                <div class="card-body-4g">
+                  <h5 class="card-title">180.000đ</h5>
+                  <p class="card-subtitle">6GB/ngày</p>
+                  <p class="card-text">Miễn phí TV360 4K, 30GB Mybox...</p>
+                  <a href="5g180b.html" class="card-link">Xem chi tiết</a>
+                </div>
+              </div>
+
+              <!-- Card 3-->
+              <div class="card" style="width: 18rem">
+                <div class="banner p-0">
+                  <img
+                    src="assets/images/img-similar-pack.svg"
+                    class="card-img-top"
+                    alt="..."
+                  />
+                  <div class="banner-text">SG230B</div>
+                </div>
+                <div class="card-body-4g">
+                  <h5 class="card-title">230.000đ</h5>
+                  <p class="card-subtitle">8GB/ngày</p>
+                  <p class="card-text">Miễn phí TV360 4K, 50GB Mybox...</p>
+                  <a href="5g230b.html" class="card-link">Xem chi tiết</a>
+                </div>
+              </div>
+
+              <!-- Card 4-->
+              <div class="card" style="width: 18rem">
+                <div class="banner p-0">
+                  <img
+                    src="assets/images/img-similar-pack.svg"
+                    class="card-img-top"
+                    alt="..."
+                  />
+                  <div class="banner-text">SG280B</div>
+                </div>
+                <div class="card-body-4g">
+                  <h5 class="card-title">280.000đ</h5>
+                  <p class="card-subtitle">10GB/ngày</p>
+                  <p class="card-text">Miễn phí TV360 4K, 70GB Mybox...</p>
+                  <a href="5g280b.html" class="card-link">Xem chi tiết</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-12 text-center mt-3">
+            <a
+              href="allpackage5g.html"
+              class="btn btn-outline-secondary btn-see-more"
+            >
+              Xem thêm
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="container">
+          <div class="col-lg-12 mt-4">
+            <div class="row">
+              <div class="title_module_main col">
+                <h4 class="text-start ps-2 fw-bold">Thiết bị Camera</h4>
+                <hr />
+              </div>
+            </div>
+            <div class="row mb-3 no-responsive">
+              <div class="col-lg-3">
+                <div class="card" style="width: 15rem">
+                  <img
+                    src="assets/images/cam1.png"
+                    class="card-img-top"
+                    alt="..."
+                  />
+                  <div class="card-body" style="min-height: 170px">
+                    <h6 class="fw-bold">CAMERA NGOÀI TRỜI</h6>
+                    <p class="card-subtitle">
+                      Tặng miễn phí khách hàng khi lắp wifi và khác hàng đang
+                      dùng wifi
+                    </p>
+                    <a
+                      href="allpackagcamera.html"
+                      class="card-link"
+                      style="margin-top: 14px"
+                      >Xem chi tiết</a
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-3">
+                <div class="card" style="width: 15rem">
+                  <img
+                    src="assets/images/cam2.png"
+                    class="card-img-top"
+                    alt="..."
+                  />
+                  <div class="card-body" style="min-height: 170px">
+                    <h6 class="fw-bold">CAMERA TRONG NHÀ</h6>
+                    <p class="card-subtitle">
+                      Tặng miễn phí khách hàng khi lắp wifi và khác hàng đang
+                      dùng wifi
+                    </p>
+                    <a
+                      href="allpackagcamera.html"
+                      class="card-link"
+                      style="margin-top: 14px"
+                      >Xem chi tiết</a
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-3">
+                <div class="card" style="width: 15rem">
+                  <img
+                    src="assets/images/cam3.png"
+                    class="card-img-top"
+                    alt="..."
+                  />
+                  <div class="card-body" style="min-height: 170px">
+                    <h6 class="fw-bold">HOMEWIFI (BỘ 3 THIẾT BỊ)</h6>
+                    <p class="card-subtitle">
+                      Tặng miễn phí khách hàng khi lắp wifi và khác hàng đang
+                      dùng wifi
+                    </p>
+                    <a
+                      href="allpackagcamera.html"
+                      class="card-link"
+                      style="margin-top: 14px"
+                      >Xem chi tiết</a
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-3">
+                <div class="card" style="width: 15rem">
+                  <img
+                    src="assets/images/cam4.png"
+                    class="card-img-top"
+                    alt="..."
+                  />
+                  <div class="card-body" style="min-height: 170px">
+                    <h6 class="fw-bold">HOMEWIFI (BỘ 2 THIẾT BỊ)</h6>
+                    <p class="card-subtitle">
+                      Tặng miễn phí khách hàng khi lắp wifi và khác hàng đang
+                      dùng wifi
+                    </p>
+                    <a
+                      href="allpackagcamera.html"
+                      class="card-link"
+                      style="margin-top: 14px"
+                      >Xem chi tiết</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="scrollable-list">
+                <!-- Card 1 -->
+                <div class="card" style="width: 15rem">
+                  <img
+                    src="assets/images/cam1.png"
+                    class="card-img-top"
+                    alt="..."
+                  />
+                  <div class="card-body" style="min-height: 170px">
+                    <h5 class="fw-bold">CAMERA NGOÀI TRỜI</h5>
+                    <p class="card-subtitle text-start">
+                      Tặng miễn phí khách hàng khi lắp wifi và khác hàng đang
+                      dùng wifi
+                    </p>
+                    <a
+                      href="allpackagcamera.html"
+                      class="card-link"
+                      style="margin-top: 14px"
+                      >Xem chi tiết</a
+                    >
+                  </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="card" style="width: 15rem">
+                  <img
+                    src="assets/images/cam2.png"
+                    class="card-img-top"
+                    alt="..."
+                  />
+                  <div class="card-body" style="min-height: 170px">
+                    <h5 class="fw-bold">CAMERA TRONG NHÀ</h5>
+                    <p class="card-subtitle text-start">
+                      Tặng miễn phí khách hàng khi lắp wifi và khác hàng đang
+                      dùng wifi
+                    </p>
+                    <a
+                      href="allpackagcamera.html"
+                      class="card-link"
+                      style="margin-top: 14px"
+                      >Xem chi tiết</a
+                    >
+                  </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="card" style="width: 15rem">
+                  <img
+                    src="assets/images/cam3.png"
+                    class="card-img-top"
+                    alt="..."
+                  />
+                  <div class="card-body" style="min-height: 170px">
+                    <h5 class="fw-bold">HOMEWIFI (BỘ 3 THIẾT BỊ)</h5>
+                    <p class="card-subtitle text-start">
+                      Tặng miễn phí khách hàng khi lắp wifi và khác hàng đang
+                      dùng wifi
+                    </p>
+                    <a
+                      href="allpackagcamera.html"
+                      class="card-link"
+                      style="margin-top: 14px"
+                      >Xem chi tiết</a
+                    >
+                  </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="card" style="width: 15rem">
+                  <img
+                    src="assets/images/cam4.png"
+                    class="card-img-top"
+                    alt="..."
+                  />
+                  <div class="card-body" style="min-height: 170px">
+                    <h5 class="fw-bold">HOMEWIFI (BỘ 2 THIẾT BỊ)</h5>
+                    <p class="card-subtitle text-start">
+                      Tặng miễn phí khách hàng khi lắp wifi và khác hàng đang
+                      dùng wifi
+                    </p>
+                    <a
+                      href="allpackagcamera.html"
+                      class="card-link"
+                      style="margin-top: 14px"
+                      >Xem chi tiết</a
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-12 text-center">
+                <a
+                  href="allpackagcamera.html"
+                  class="btn btn-outline-secondary btn-see-more"
+                >
+                  Xem thêm
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-5">
+        <div class="bg-custom">
+          <div class="col-lg-12 mt-2">
+            <div class="row">
+              <div class="title_module_main col">
+                <h4 class="text-start ps-2 fw-bold">Combo Internet – TV360</h4>
+                <hr />
+              </div>
+            </div>
+            <div class="container">
+              <div class="row mb-3 no-responsive">
+                <div class="col-lg-8">
+                  <div
+                    id="comboCarousel"
+                    class="carousel slide"
+                    data-bs-ride="carousel"
+                  >
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <div class="row">
+                          <div class="col-lg-6">
+                            <div class="card combo-tv-internet">
+                              <div class="card-body">
+                                <h4 class="card-title">HOMET - VIP</h4>
+                                <p class="card-text">150Mbps</p>
+                                <p class="card-text">
+                                  Thiết bị kết nối: Laptop, TV, Phone
+                                </p>
+                                <p class="card-text">
+                                  Áp dụng 61 tỉnh và ngoại thành HNI, HCM
+                                </p>
+                                <p class="card-text">
+                                  <li>Không có đầu thu</li>
+                                  <li>
+                                    Phù hợp với cá nhân, hộ gia đình có nhu cầu
+                                    kết nối mạng cho mục đích học tập, giải trí
+                                    thông thường.
+                                  </li>
+                                </p>
+                                <hr />
+                                <p>Giá một tháng</p>
+                                <div class="d-flex body-content">
+                                  <h3 class="fw-bold">225.000đ/</h3>
+                                  tháng
+                                </div>
+                                <a
+                                  href="register.html"
+                                  class="btn btn-outline-secondary"
+                                  >Đăng ký</a
+                                >
+                                <a
+                                  href="homet-vip.html"
+                                  class="btn btn-outline-secondary"
+                                  >Chi tiết gói cước</a
+                                >
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-lg-6">
+                            <div class="card combo-tv-internet">
+                              <div class="card-body">
+                                <h4 class="card-title">HOMET - VIPBOX</h4>
+                                <p class="card-text">150Mbps</p>
+                                <p class="card-text">
+                                  Thiết bị kết nối: Laptop, TV, Phone
+                                </p>
+                                <p class="card-text">
+                                  Áp dụng 61 tỉnh và ngoại thành HNI, HCM
+                                </p>
+                                <p class="card-text">
+                                  <li>Có đầu thu</li>
+                                  <li>
+                                    Phù hợp với cá nhân, hộ gia đình có nhu cầu
+                                    kết nối mạng cho mục đích học tập, giải trí
+                                    thông thường.
+                                  </li>
+                                </p>
+                                <hr />
+                                <p>Giá một tháng</p>
+                                <div class="d-flex body-content">
+                                  <h3 class="fw-bold">245.000đ/</h3>
+                                  tháng
+                                </div>
+                                <a
+                                  href="register.html"
+                                  class="btn btn-outline-secondary"
+                                  >Đăng ký</a
+                                >
+                                <a
+                                  href="homet-vipbox.html"
+                                  class="btn btn-outline-secondary"
+                                  >Chi tiết gói cước</a
+                                >
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 position-relative">
+                  <img
+                    src="assets/images/tv4.png"
+                    class="card-img-top custom-img position-absolute bottom-0 end-0"
+                    alt="..."
+                  />
+                </div>
+              </div>
+              <div class="row combo-tv">
+                <div class="col-lg-6">
+                  <div class="card combo-tv-internet">
+                    <div class="card-body">
+                      <h4 class="card-title">HOMET - VIP</h4>
+                      <p class="card-text">150Mbps</p>
+                      <p class="card-text">
+                        Thiết bị kết nối: Laptop, TV, Phone
+                      </p>
+                      <p class="card-text">
+                        Áp dụng 61 tỉnh và ngoại thành HNI, HCM
+                      </p>
+                      <p class="card-text">
+                        <li>Không có đầu thu</li>
+                        <li>
+                          Phù hợp với cá nhân, hộ gia đình có nhu cầu kết nối
+                          mạng cho mục đích học tập, giải trí thông thường.
+                        </li>
+                      </p>
+                      <hr />
+                      <p>Giá một tháng</p>
+                      <div class="d-flex body-content">
+                        <h3 class="fw-bold">225.000đ</h3>
+                      </div>
+                      <a href="register.html" class="btn btn-outline-secondary"
+                        >Đăng ký</a
+                      >
+                      <a href="homet-vip.html" class="btn btn-outline-secondary"
+                        >Chi tiết gói cước</a
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-6">
+                  <div class="card combo-tv-internet">
+                    <div class="card-body">
+                      <h4 class="card-title">HOMET - VIPBOX</h4>
+                      <p class="card-text">150Mbps</p>
+                      <p class="card-text">
+                        Thiết bị kết nối: Laptop, TV, Phone
+                      </p>
+                      <p class="card-text">
+                        Áp dụng 61 tỉnh và ngoại thành HNI, HCM
+                      </p>
+                      <p class="card-text">
+                        <li>Có đầu thu</li>
+                        <li>
+                          Phù hợp với cá nhân, hộ gia đình có nhu cầu kết nối
+                          mạng cho mục đích học tập, giải trí thông thường.
+                        </li>
+                      </p>
+                      <hr />
+                      <p>Giá một tháng</p>
+                      <div class="d-flex body-content">
+                        <h3 class="fw-bold">245.000đ</h3>
+                      </div>
+                      <a href="register.html" class="btn btn-outline-secondary"
+                        >Đăng ký</a
+                      >
+                      <a
+                        href="homet-vipbox.html"
+                        class="btn btn-outline-secondary"
+                        >Chi tiết gói cước</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-12 text-center">
+                <a
+                  href="allpackage.html"
+                  class="btn btn-outline-secondary btn-see-more"
+                >
+                  Xem thêm
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-2">
+        <div class="card-huongdan">
+          <div class="card-body">
+            <h3 class="fw-bold text-danger">3 Bước lắp đặt camera tại nhà</h3>
+            <div class="ps-2">
+              <h3 class="card-title">Bước 1:</h3>
+              <p>
+                Gọi <span style="color: blue">0375.2323.09</span> hoặc bấm vào
+                nút <a href="register.html"> Đăng ký ngay</a> để được nhân viên
+                khảo sát và tư vấn gói cước phù hợp.
+              </p>
+              <br />
+              <h3 class="card-title">Bước 2:</h3>
+              <p>
+                Chuẩn bị giấy CMND (với KH cá nhân) hoặc GPKD (với KH doanh
+                nghiệp) để lên hợp đồng trên hệ thống.
+              </p>
+              <br />
+              <h3 class="card-title">Bước 3:</h3>
+              <p>
+                Cung cấp địa chỉ cho nhân viên kỹ thuật đến lắp đặt, hướng dẫn
+                sử dụng và bàn giao.
+              </p>
+              <br />
+              <strong
+                >Cảm ơn Quý Khách đã tin tưởng sử dụng dịch vụ Viettel!</strong
+              >
+            </div>
+            <div class="d-flex justify-content-center mt-3">
+              <div style="width: 50%">
+                <a
+                  href="register.html"
+                  class="btn btn-outline-secondary"
+                  style="width: 100%"
+                  >Đăng ký</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contact-info">
+      <strong class="text-center">Chi tiết liên hệ:</strong>
+      <p>
+        <strong><i class="bx bx-user"></i>: </strong> Hà Thanh Cường
+      </p>
+      <p>
+        <strong><i class="bx bx-phone"></i>: </strong> 0375.2323.09
+      </p>
+    </div>
+
+    <div class="social-avatar-container">
+      <!-- Avatar Facebook -->
+      <a
+        href="https://www.facebook.com/thanh.cuong.52012?mibextid=LQQJ4d"
+        target="_blank"
+        class="social-avatar facebook-avatar"
+      >
+        <img src="assets/images/face.png" alt="Facebook Avatar" />
+      </a>
+
+      <!-- Avatar Zalo -->
+      <a
+        href="https://zalo.me/0375232309"
+        target="_blank"
+        class="social-avatar zalo-avatar"
+      >
+        <img src="assets/images/Zalo-600x600-1.png" alt="Zalo Avatar" />
+      </a>
+    </div>
+
+    <!-- MDBootstrap JS -->
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

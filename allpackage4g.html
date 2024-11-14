@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script> -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.min.js"></script> -->
+    <!-- <script src="app.js"></script> -->
+    <style>
+      /* CSS tổng quan cho card và banner */
+      .banner {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .banner img {
+        width: 100%;
+        height: auto;
+      }
+
+      .banner-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+      }
+
+      /* .banner-text {
+        position: absolute;
+        bottom: 10%;
+        left: 5%;
+        color: #fff;
+        font-size: 2.5rem;
+        font-weight: bold;
+      } */
+
+      /* Table module package styling */
+      .table_module_package table {
+        width: 100%;
+      }
+
+      .table_module_package th,
+      .table_module_package td {
+        padding: 0.75rem;
+      }
+
+      .table_module_package .text-start {
+        text-align: left;
+      }
+
+      .bg-danger {
+        background-color: #dc3545 !important;
+      }
+
+      /* Responsive styling cho thiết bị dưới 768px */
+      @media (max-width: 768px) {
+        .banner-text {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          display: flex;
+          font-size: 20px !important;
+          color: #fff;
+          font-weight: bold;
+          /* text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.7); */
+          padding: 10px 20px;
+          border-radius: 5px;
+        }
+
+        .banner {
+          position: relative;
+          overflow: hidden;
+          margin-left: 13px;
+          margin-top: 50px;
+        }
+
+        .table_module_package table {
+          font-size: 0.9rem;
+        }
+
+        .table_module_package th,
+        .table_module_package td {
+          padding: 0.5rem;
+        }
+
+        /* Điều chỉnh khoảng cách cho các tiêu đề nhóm gói */
+        h4.fw-bold {
+          font-size: 1.25rem;
+          margin-top: 1rem;
+          text-align: center;
+        }
+
+        /* Điều chỉnh khoảng cách cho bảng */
+        .table-bordered {
+          border: 1px solid #dee2e6;
+          margin-bottom: 1rem;
+        }
+
+        .table thead th {
+          font-size: 1rem;
+        }
+
+        .table tbody tr td {
+          font-size: 0.8rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <a href="#" class="logo">
+        <img src="assets/images/logo.jpg" alt="logo" />
+      </a>
+      <i class="bx bx-menu" id="menu-icon"></i>
+      <nav class="navbar">
+        <a href="index.html">Trang chủ</a>
+        <a href="allpackagtruyenhinh.html">Truyền hình</a>
+        <a href="allpackage.html">Wifi</a>
+        <a href="allpackagcamera.html">Camera</a>
+        <a href="allpackage4g-5g.html">Gói 4G-5G</a>
+      </nav>
+      <div class="nav-bg"></div>
+    </header>
+    <!-- <div ng-view></div> -->
+    <div class="row">
+      <div class="banner p-0">
+        <img
+          src="assets/images/bannerproductdetail1.png"
+          alt=""
+          class="img-fluid"
+        />
+        <div class="banner-overlay"></div>
+        <div class="banner-text fs-1">GÓI CƯỚC DATA</div>
+      </div>
+    </div>
+    <div class="content mb-5 p-3">
+      <div class="row mt-3">
+        <h4 class="fw-bold text-start">A. GÓI CƯỚC 4G</h4>
+        <div class="table_module_package">
+          <table class="table table-bordered text-center">
+            <thead class="bg-danger text-white">
+              <tr>
+                <th>Tên gói cước</th>
+                <th>Ưu đãi</th>
+                <th>Giá gói cước</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>MI7D</strong></td>
+                <td class="text-start">
+                  <li>
+                    Có 700MB sử dụng đến 24h ngày đăng ký. Hết lưu lượng hệ
+                    thống dừng truy cập.
+                  </li>
+                  <li>
+                    Khách hàng dùng gói MI7D có thể đăng ký đồng thời với các
+                    gói MI khác.
+                  </li>
+                  <li>
+                    Nếu khách hàng dùng song song với gói MI khác thì hệ thống
+                    sẽ ưu tiên trừ lưu lượng data như sau: trừ các gói MI7D
+                    trước => gói data chính của khách hàng.
+                  </li>
+                </td>
+                <td>7.000đ</td>
+              </tr>
+              <tr>
+                <td><strong>6M10_100M</strong></td>
+                <td class="text-start">
+                  <li>
+                    6M10_100M: 60.000đ/180 ngày Ưu đãi dùng trong mỗi chu kỳ 30
+                    ngày: - 100MB truy cập tất cả các hướng - 10SMS nội mạng -
+                    Gói cước gia hạn sau 180 ngày
+                  </li>
+                </td>
+                <td>60.000đ</td>
+              </tr>
+              <tr>
+                <td><strong>ST70K</strong></td>
+                <td class="text-start">
+                  <li>
+                    500MB data tốc độ cao/ngày, hết lưu lượng ngừng truy cập.
+                  </li>
+                  <li>
+                    Gói cước tự động gia hạn khi hết chu kỳ (Không bảo lưu data
+                    khi gia hạn thành công)
+                  </li>
+                  <li>
+                    Ưu đãi sử dụng trong 30 ngày (trả trước), hết tháng (trả
+                    sau).
+                  </li>
+                </td>
+                <td>70.000đ</td>
+              </tr>
+              <tr>
+                <td><strong>SD90</strong></td>
+                <td class="text-start">
+                  <li>1,5GB/ngày.</li>
+                  <li>
+                    Gói cước gia hạn sau 30 ngày với thuê bao trả trước hoặc khi
+                    hết tháng với thuê bao trả sau.
+                  </li>
+                </td>
+                <td>90.000đ</td>
+              </tr>
+              <tr>
+                <td><strong>SD120</strong></td>
+                <td class="text-start">
+                  <li>2GB/ngày.</li>
+                  <li>
+                    Gói cước gia hạn sau 30 ngày với thuê bao trả trước hoặc khi
+                    hết tháng với thuê bao trả sau.
+                  </li>
+                </td>
+                <td>120.000đ</td>
+              </tr>
+              <tr>
+                <td><strong>ST120K</strong></td>
+                <td class="text-start">
+                  <li>Có 2GB tốc độ cao/ngày, hết lưu lượng ngừng truy cập.</li>
+                  <li>Miễn phí DV LifeBOX (gói Vip1)</li>
+                  <li>Miễn phí xem truyền hình trên ứng dụng TV360.</li>
+                  <li>
+                    Gói cước gia hạn sau 30 ngày với TB trả trước, khi hết tháng
+                    với TB trả sau.
+                  </li>
+                </td>
+                <td>120.000đ</td>
+              </tr>
+              <tr>
+                <td><strong>SD150</strong></td>
+                <td class="text-start">
+                  <li>3GB/ngày.</li>
+                  <li>Gói cước gia hạn khi hết chu kỳ.</li>
+                </td>
+                <td>150.000đ</td>
+              </tr>
+              <tr>
+                <td><strong>5G150</strong></td>
+                <td class="text-start">
+                  <li>180GB (6GB/ngày)</li>
+                  <li>Miễn phí xem TV360 gói Basic</li>
+                  <li>Miễn phí 30GB lưu trữ dữ liệu trên Mybox</li>
+                  <li>Gói cước gia hạn sau 30 ngày</li>
+                </td>
+                <td>150.000đ</td>
+              </tr>
+              <tr>
+                <td><strong>ST150K</strong></td>
+                <td class="text-start">
+                  <li>ó 3GB tốc độ cao/ngày, hết lưu lượng ngừng truy cập.</li>
+                  <li>MCiễn phí DV LifeBOX (gói Vip1)</li>
+                  <li>Miễn phí xem truyền hình trên ứng dụng TV360.</li>
+                  <li>
+                    Gói cước gia hạn sau 30 ngày với TB trả trước, khi hết tháng
+                    với TB trả sau.
+                  </li>
+                </td>
+                <td>150.000đ</td>
+              </tr>
+              <tr>
+                <td><strong>5GLQ190</strong></td>
+                <td class="text-start">
+                  <li>180GB (6GB/ngày)</li>
+                  <li>Miễn phí xem truyền hình TV360 gói Basic</li>
+                  <li>Miễn phí 30GB lưu trữ dữ liệu trên Mybox</li>
+                  <li>Miễn phí chơi game Liên Quân Mobile (2GB/ngày)</li>
+                </td>
+                <td>190.000đ</td>
+              </tr>
+              <tr>
+                <td><strong>5GLQ210</strong></td>
+                <td class="text-start">
+                  <li>180GB (6GB/ngày)</li>
+                  <li>100 phút gọi ngoại mạng</li>
+                  <li>
+                    Miễn phí 20 phút đầu tiên của tất cả các cuộc gọi nội mạng
+                    (tối đa 1.000 phút)
+                  </li>
+                  <li>Miễn phí xem truyền hình TV360 gói Basic</li>
+                  <li>Miễn phí 30GB lưu trữ dữ liệu trên Mybox</li>
+                  <li>Miễn phí chơi game Liên Quân Mobile (2GB/ngày)</li>
+                </td>
+                <td>210.000đ</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="row mt-3">
+        <h4 class="fw-bold text-start">B. GÓI CƯỚC HOT</h4>
+        <div class="table_module_package">
+          <table class="table table-bordered text-center">
+            <thead class="bg-danger text-white">
+              <tr>
+                <th>Tên gói cước</th>
+                <th>Ưu đãi</th>
+                <th>Giá gói cước</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>YT5K</strong></td>
+                <td class="text-start">
+                  <li>Truy cập YouTube (tối đa 15GB) đến 24h</li>
+                  <li>Gói cước gia hạn hàng ngày</li>
+                </td>
+                <td>5.000đ</td>
+              </tr>
+              <tr>
+                <td><strong>FB5K</strong></td>
+                <td class="text-start">
+                  <li>
+                    Truy cập Facebook và nhắn tin Messenger (tối đa 15GB) đến
+                    24h ngày đăng ký.
+                  </li>
+                  <li>Gói cước gia hạn hàng ngày</li>
+                </td>
+                <td>5.000đ</td>
+              </tr>
+              <tr>
+                <td><strong>ST5K</strong></td>
+                <td class="text-start">
+                  <li>
+                    500MB tốc độ cao sử dụng đến 24h cùng ngày đăng ký, hết lưu
+                    lượng truy cập theo gói Mobile Internet đang sử dụng (nếu
+                    có).
+                  </li>
+                  <li>
+                    MUA 2 TẶNG 1: Cứ mỗi 2 lần đăng ký trong ngày sẽ được tặng
+                    thêm 500MB sử dụng đến 24h.
+                  </li>
+                  <li>
+                    Gói cước gia hạn hàng ngày, lưu lượng còn lại sẽ được bảo
+                    lưu khi gia hạn thành công.
+                  </li>
+                </td>
+                <td>5.000đ</td>
+              </tr>
+              <tr>
+                <td><strong>T5K</strong></td>
+                <td class="text-start">
+                  <li>Truy cập TikTok (tối đa 15GB) đến 24h</li>
+                  <li>Gói cước gia hạn theo ngày</li>
+                </td>
+                <td>5.000đ</td>
+              </tr>
+              <tr>
+                <td><strong>ST5KM</strong></td>
+                <td class="text-start">
+                  <li>
+                    1GB tốc độ cao sử dụng đến 24h cùng ngày đăng ký, hết lưu
+                    lượng truy cập theo gói Mobile Internet đang sử dụng (nếu
+                    có). Gói cước KHÔNG gia hạn hàng ngày.
+                  </li>
+                </td>
+                <td>5.000đ</td>
+              </tr>
+              <tr>
+                <td><strong>TV7K</strong></td>
+                <td class="text-start">
+                  <li>
+                    1GB (hết lưu lượng truy cập theo gói Mobile Internet đang sử
+                    dụng nếu có).
+                  </li>
+                  <li>
+                    Miễn phí xem truyền hình trên ứng dụng TV360 (gói standard)
+                  </li>
+                  <li>Gói cước gia hạn hàng ngày</li>
+                </td>
+                <td>7.000đ</td>
+              </tr>
+              <tr>
+                <td><strong>ST10K</strong></td>
+                <td class="text-start">
+                  <li>
+                    Có 2GB sử dụng đến 24h ngày đăng ký. Hết 2GB tính cước theo
+                    gói Mobile Internet đang sử dụng (nếu có)
+                  </li>
+                  <li>
+                    Gói cước gia hạn hàng ngày, lưu lượng còn lại sẽ được bảo
+                    lưu khi gia hạn thành công. Được đăng ký nhiều lần, lưu
+                    lượng cộng dồn sử dụng đến 24h ngày đăng ký.
+                  </li>
+                  <li>
+                    Tặng gói cước: Bấm "Tặng gói" / Soạn TANG
+                    <span style="color: red; font-weight: bold">dấu cách</span>
+                    ST10K
+                    <span style="color: red; font-weight: bold">dấu cách</span>
+                    Số thuê bao B gửi 191. Gói được tặng không gia hạn tự động.
+                  </li>
+                </td>
+                <td>10.000đ</td>
+              </tr>
+              <tr>
+                <td><strong>1N</strong></td>
+                <td class="text-start">
+                  <li>Miễn phí 10 phút/cuộc gọi nội mạng</li>
+                  <li>
+                    5GB (hết lưu lượng truy cập theo gói Mobile Internet đang sử
+                    dụng nếu có).
+                  </li>
+                  <li>Gói cước gia hạn hàng ngày</li>
+                </td>
+                <td>7.000đ</td>
+              </tr>
+              <tr>
+                <td><strong>T15KN</strong></td>
+                <td class="text-start">
+                  <li>Truy cập TikTok (tối đa 25GB)</li>
+                  <li>Gói cước gia hạn sau 7 ngày</li>
+                </td>
+                <td>15.000đ</td>
+              </tr>
+              <tr>
+                <td><strong>YT15K</strong></td>
+                <td class="text-start">
+                  <li>Truy cập YouTube (tối đa 25GB)</li>
+                  <li>Gói cước gia hạn sau 7 ngày</li>
+                </td>
+                <td>15.000đ</td>
+              </tr>
+              <tr>
+                <td><strong>3N</strong></td>
+                <td class="text-start">
+                  <li>15GB (5GB/ngày).</li>
+                  <li>Miễn phí nhắn tin nội mạng.</li>
+                  <li>
+                    Miễn phí 10 phút/cuộc gọi nội mạng, 15 phút gọi ngoại mạng.
+                  </li>
+                  <li>Miễn phí xem truyền hình trên ứng dụng TV360</li>
+                  <li>Gói cước gia hạn sau 3 ngày.</li>
+                </td>
+                <td>30.000đ</td>
+              </tr>
+              <tr>
+                <td><strong>ST30K</strong></td>
+                <td class="text-start">
+                  <li>
+                    Có ngay 7GB lưu lượng tốc độ cao sử dụng trong 7 ngày kể từ
+                    ngày đăng ký thành công. Hết lưu lượng truy cập theo gói
+                    Mobile Internet đang sử dụng (nếu có).
+                  </li>
+                  <li>
+                    Gói cước gia hạn khi hết chu kỳ, lưu lượng còn lại sẽ được
+                    bảo lưu khi gia hạn thành công.
+                  </li>
+                </td>
+                <td>30.000đ</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="row mt-3">
+        <h4 class="fw-bold text-start">C. GÓI CƯỚC Dcom</h4>
+        <div class="table_module_package">
+          <table class="table table-bordered text-center">
+            <thead class="bg-danger text-white">
+              <tr>
+                <th>Tên gói cước</th>
+                <th>Ưu đãi</th>
+                <th>Giá gói cước</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>DC5</strong></td>
+                <td class="text-start">
+                  <li>
+                    Có 1GB trong 24h kể từ thời điểm đăng ký, hết 1GB truy cập
+                    với cước phí 9.76đ/50KB.
+                  </li>
+                  <li>Gói cước tự động gia hạn.</li>
+                  <li>
+                    Đối tượng áp dụng: Thuê bao Dcom trả trước theo danh sách.
+                  </li>
+                </td>
+                <td>5.000đ</td>
+              </tr>
+              <tr>
+                <td><strong>D10</strong></td>
+                <td class="text-start">
+                  <li>
+                    Có 3GB lưu lượng tốc độ cao trong 24h kể từ thời điểm đăng
+                    ký. Hết 3GB truy cập với cước phí 9.76đ/50KB.
+                  </li>
+                  <li>Gói cước tự động gia hạn.</li>
+                  <li>
+                    Đối tượng áp dụng: Thuê bao Dcom trả trước kích hoạt mới từ
+                    ngày 15/11/2018.
+                  </li>
+                </td>
+                <td>10.000đ</td>
+              </tr>
+              <tr>
+                <td><strong>D15</strong></td>
+                <td class="text-start">
+                  <li>
+                    5GB trong 24h kể từ thời điểm đăng ký, hết 5GB tính cước
+                    9.76đ/50KB.
+                  </li>
+                  <li>
+                    Đối tượng áp dụng: Thuê bao Dcom trả trước kích hoạt mới
+                    trước ngày 15/11/2018.
+                  </li>
+                </td>
+                <td>15.000đ</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="contact-info">
+      <strong class="text-center">Chi tiết liên hệ:</strong>
+      <p>
+        <strong><i class="bx bx-user"></i>: </strong> Hà Thanh Cường
+      </p>
+      <p>
+        <strong><i class="bx bx-phone"></i>: </strong> 0375.2323.09
+      </p>
+    </div>
+
+    <div class="social-avatar-container">
+      <!-- Avatar Facebook -->
+      <a
+        href="https://www.facebook.com/thanh.cuong.52012?mibextid=LQQJ4d"
+        target="_blank"
+        class="social-avatar facebook-avatar"
+      >
+        <img src="assets/images/face.png" alt="Facebook Avatar" />
+      </a>
+
+      <!-- Avatar Zalo -->
+      <a
+        href="https://zalo.me/0375232309"
+        target="_blank"
+        class="social-avatar zalo-avatar"
+      >
+        <img src="assets/images/Zalo-600x600-1.png" alt="Zalo Avatar" />
+      </a>
+    </div>
+   
+    
+    <!-- MDBootstrap JS -->
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
