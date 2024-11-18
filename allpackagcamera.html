@@ -136,6 +136,24 @@
         .card {
           width: 100%;
         }
+
+        poster {
+          width: 90%;
+          max-width: 100%;
+          border-radius: 5px;
+        }
+
+        .content h1 {
+          font-size: 1.5em;
+        }
+
+        .content p {
+          font-size: 1em;
+        }
+
+        .content {
+          padding: 15px;
+        }
       }
 
       .card {
@@ -165,6 +183,46 @@
       .card-body {
         text-align: left;
         padding: 16px;
+      }
+
+      .poster {
+        width: 80%;
+        max-width: 600px;
+        border: 2px solid #333;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        background-color: #fff;
+      }
+
+      .content-poster {
+        padding: 20px 20px 0 20px;
+        text-align: center;
+      }
+
+      .content-poster h1 {
+        font-size: 2em;
+        color: #333;
+        margin-bottom: 10px;
+      }
+
+      .content-poster p {
+        font-size: 1.2em;
+        color: #666;
+      }
+
+      .image-container {
+        width: 100%;
+        overflow: hidden;
+      }
+
+      .image-container img {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: cover;
+        padding: 10px;
+        border-radius: 20px;
       }
     </style>
   </head>
@@ -360,6 +418,21 @@
 
     <hr />
 
+    <div class="row d-flex justify-content-center">
+      <div class="poster">
+        <div class="content-poster">
+          <h1 class="fw-bold text-danger">CAMERA</h1>
+          <p>
+            Liên hệ với chúng tôi nếu bạn đang cần tư vấn về sản phẩm và dịch vụ
+            của <span class="text-danger">VIETTEL</span> ngày hôm nay
+          </p>
+        </div>
+        <div class="image-container">
+          <img src="assets/images/cam5.jpg" alt="Poster Image" />
+        </div>
+      </div>
+    </div>
+
     <div class="content mb-5 p-3">
       <div class="row">
         <h4 class="fw-bold text-start">A. CAMERA</h4>
@@ -446,7 +519,6 @@
       </a>
     </div>
 
-    
     <!-- MDBootstrap JS -->
     <script src="assets/js/main.js"></script>
   </body>
